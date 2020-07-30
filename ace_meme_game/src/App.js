@@ -8,7 +8,7 @@ let socket;
 
 export const initiateSocket = () => {
   
-   socket = io.connect("http://localhost:5000/")
+  //  socket = io.connect("http://localhost:5000/")
   if (socket) 
   // console.log('connected')
   return socket
@@ -30,16 +30,20 @@ function App() {
   const [message, setMessage] = useState([])
 const [thread, setThread] = useState([])
 
+console.log(thread)
+useEffect(( )=> {
+  if (socket){
+    socket.on('thread', payload => {
+      setThread([...thread, {
+        message: payload.message,
+        id:payload.id,
+        user: payload.user}])
+      
+    })
+    console.log("onThread")
+  }
+},[messageCount])
 
-if (socket){
-  socket.on('thread', payload => {
-    setThread([...thread, {
-      message: payload.message,
-      id:payload.id,
-      user: payload.user}])
-    
-  })
-}
 
   const addMessage = (newMessage, user) => {
     const newMsg = {

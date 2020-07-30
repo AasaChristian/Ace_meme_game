@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import io from "socket.io-client"
+
+
 
 function MessageForm(props){
     const [notes, setNotes] = useState([])
@@ -9,11 +12,20 @@ const handleChanges = e => {
     
 }
 
+
 const submitForm = e =>{
     e.preventDefault()
-    props.addMessage(notes, "New User")
+    props.socket.emit('new message', {
+        message: notes,
+        user: "new User"
+      })
+
     setNotes([])
 }
+
+
+
+
 
 return(
     <div>
