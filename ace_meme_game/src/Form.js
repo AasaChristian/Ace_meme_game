@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import io from "socket.io-client"
+import { connect } from "react-redux";
+import {updateThread} from './actions'
+
 
 
 
@@ -8,29 +10,23 @@ function MessageForm(props){
 
 const handleChanges = e => {
     e.preventDefault()
-    setNotes(e.target.value)
-    
-}
-
+    setNotes(e.target.value)   }
 
 const submitForm = e =>{
     e.preventDefault()
     props.socket.emit('new message', {
         message: notes,
-        user: "new User"
+        user: "new User",
+        id: Date.now()
       })
-
     setNotes([])
-}
-
-
-
-
+    props.socket.emit('state', 1)
+    }
 
 return(
     <div>
         <section>
-            <form  onSubmit={submitForm}>
+            <form  onSubmit={submitForm} >
                 <input
                 id="notes"
                 type="text"
@@ -47,4 +43,12 @@ return(
 
 
 }
-export default MessageForm;
+const mapStateToProps = state => {
+    return{
+    messageCount: state.messageCount, 
+    }
+  };
+  
+  export default connect( 
+    mapStateToProps, {updateThread}
+  )(MessageForm);

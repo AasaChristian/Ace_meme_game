@@ -1,10 +1,11 @@
 export const UPDATE_THREAD = 'UPDATE_THREAD'
 
 
-export const updateThread = payload => {
-    return{
-        type: 'UPDATE_THREAD',
-        payload: payload
-    };
+// const socket = io.connect("http://localhost:5000/")
 
-};
+export const updateThread = () => {
+    return{
+        type: UPDATE_THREAD
+    }};
+
+    

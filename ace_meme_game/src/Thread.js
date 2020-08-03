@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from "react-redux";
+import {updateThread} from './actions'
 
 function Thread(props){
+    const [thread, setThread] = useState([])
+
+    let state = 0
+
+    props.socket.on('count', i => {
+         state = state +1
+    
+    })
+
+    useEffect(() => { 
+        props.socket.on('thread', load => {  
+           
+            setThread(load)
+            
+        },)}, [props.socket])
+
+
     return(
-        // <div key={props.user}>
-        //     <h3 key={props.user} >{props.message}</h3>
+        <div>
+            {thread.map((line, i) => (
+                <div key ={i}> 
 
-        // </div>
+            <p>{line.message}</p>
 
-        <div key={props.i}>
-            <h3>{props.message}</h3>
+                </div>
+
+            ))}
         </div>
+        
     )
 
-}export default Thread
+}
+const MemoiizedThread = React.memo(Thread)
+
+
+const mapStateToProps = state => {
+    return{
+    messageCount: state.messageCount, 
+    }
+  };
+  
+  export default connect( 
+    mapStateToProps, {updateThread}
+  )(MemoiizedThread);
