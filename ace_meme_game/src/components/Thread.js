@@ -23,8 +23,8 @@ function Thread(props){
   <Avatar imgUrl="https://livechat.s3.amazonaws.com/default/avatars/male_8.jpg" />
   <Column>
         <div className={'line'}>
-        <Title>{line.line}</Title>
-    <Subtitle>{line.user}</Subtitle>
+        <Title>{line.message.line}</Title>
+    <Subtitle>{line.message.user}</Subtitle>
         </div>
   </Column>
 </AgentBar>
