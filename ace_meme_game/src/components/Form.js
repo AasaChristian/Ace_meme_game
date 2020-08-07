@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import { connect } from "react-redux";
-import {updateThread} from './actions'
-
-
-
+import {updateThread} from '../actions'
+const storedName = localStorage.getItem('username')
 
 function MessageForm(props){
     const [notes, setNotes] = useState([])
+
+
+    
+    
 
 const handleChanges = e => {
     e.preventDefault()
@@ -16,7 +18,7 @@ const submitForm = e =>{
     e.preventDefault()
     props.socket.emit('new message', {
         message: notes,
-        user: "new User",
+        user: storedName,
         id: Date.now()
       })
     setNotes([])
@@ -31,6 +33,7 @@ return(
                 id="notes"
                 type="text"
                 name="notes"
+                placeholder="tell your story"
                 value={notes}
                 onChange={handleChanges}
                 />

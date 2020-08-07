@@ -14,22 +14,14 @@ function ImageUploader(props){
             current.file = file;
             console.log(file, "file")
 
-
-
-            
-            
             reader.onload = (e) => {
                 current.src = e.target.result;
 
                 props.socket.emit('sent_meme', uploadedImage.current.src) 
             }
-            reader.readAsDataURL(file)
-            
-            
-            
+            reader.readAsDataURL(file)  
         }
     }
-
     props.socket.on('returned_meme', (photo) => {
         console.log(photo, "photo")
         setMeme(photo)
@@ -39,13 +31,11 @@ function ImageUploader(props){
     console.log(uploadedImage, "uploadedImage")
     
 
-    
-
     return(
         <div>
             <input type="file" accept="image/*" onChange={handleImage}
+            style={{display:'none'}}
             />
-            
             <img
             ref={uploadedImage}
             />
