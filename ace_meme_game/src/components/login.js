@@ -14,9 +14,8 @@ const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
 }
 const login = e => {
-    e.preventDefault();
-    setIsFetching(true);
     props.socket.emit('login', credentials)
+    props.history.push('/home')
 }
 
 props.socket.on('token', load => {
