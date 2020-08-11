@@ -5,45 +5,49 @@ const Register = (props) =>{
     const uploadedImage = useRef(null)
     let aviImg;
 
-    const handleImage = e => {
-        const [file] = e.target.files;
-        if (file) {
-            const reader = new FileReader();
-            const {current} = uploadedImage;
-            current.file = file;
-            console.log(file, "file")
 
-            reader.onload = (e) => {
-                current.src = e.target.result;
-                aviImg = uploadedImage.current.src
-
-                
-            }
-            reader.readAsDataURL(file)  
-        }
-    }
 
 const [credentials, setCredentials] = useState({
     username: '',
     password: '',
-    avatar: ( aviImg ? aviImg : '')
+    avatar: ''
 });
+
+
 
 const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
+}
+const handleImage = e => {
+    const [file] = e.target.files;
+    if (file) {
+        const reader = new FileReader();
+        const {current} = uploadedImage;
+        current.file = file;
+        console.log(file, "file")
+
+        reader.onload = (e) => {
+            current.src = e.target.result;
+            aviImg = uploadedImage.current.src
+            setCredentials({...credentials, avatar: aviImg})
+
+            
+        }
+        reader.readAsDataURL(file)  
+    }
 }
 console.log(credentials)
 
 const register = e => {
     e.preventDefault();
     props.socket.emit('register', credentials)
+    props.history.push('/home')
 }
 
 
 props.socket.on('token', load => {
     localStorage.setItem('token', load.Token)
     localStorage.setItem('username', load.username)
-    localStorage.setItem('avatar', load.avatar )
 
 })
 
