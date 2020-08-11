@@ -6,6 +6,7 @@ import {Provider} from "react-redux"
 import {ThemeProvider} from '@livechat/ui-kit'
 import store from './store'
 import theme from './components/Theme'
+import './index.css'
 
 
 

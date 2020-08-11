@@ -34,14 +34,17 @@ function ImageUploader(props){
     return(
         <div>
             <input type="file" accept="image/*" onChange={handleImage}
-            style={{display:'none'}}
             />
-            <img
-            ref={uploadedImage}
-            />
-            <img
+            <div className='imgCont'>
+            <img 
             src={meme}
             />
+            </div>
+            <img 
+            ref={uploadedImage}
+            style={{display:'none'}}
+            />
+            
 
         </div>
     )

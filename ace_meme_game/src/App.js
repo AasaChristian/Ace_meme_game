@@ -9,6 +9,8 @@ import Register from './components/register';
 import Login from './components/login';
 import PrivateRoute from './components/PrivateRoute';
 import Board from './components/Board';
+import Welcome from './components/welcome';
+
 
 const socket = io.connect("http://localhost:5000/")
 
@@ -18,16 +20,19 @@ function App() {
       <div className="App">
         <Switch>
           <PrivateRoute
-          path="/pro"
+          exact path="/home"
           component={Board}
           socket={socket}
           />
           <Route
-          path="/register"
+          exact path="/"
+          render={props => <Welcome {...props}/>}/>
+          <Route
+          exact path="/register"
           render={props => <Register {...props} socket={socket}/>}
           />
           <Route
-          path="/login"
+          exact path="/login"
           render={props => <Login {...props} socket={socket}/>}
           />
           <header>
