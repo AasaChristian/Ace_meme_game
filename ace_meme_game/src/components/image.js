@@ -37,10 +37,12 @@ function ImageUploader(props){
             />
             <div className='imgCont'>
             <img 
+            alt='use avatar'
             src={meme}
             />
             </div>
-            <img 
+            <img
+            alt='use avatar' 
             ref={uploadedImage}
             style={{display:'none'}}
             />

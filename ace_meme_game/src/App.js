@@ -1,9 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import io from "socket.io-client"
-import MessageForm from './components/Form';
-import Thread from './components/Thread';
-import ImageUploader from './components/image';
 import './App.css'
 import Register from './components/register';
 import Login from './components/login';

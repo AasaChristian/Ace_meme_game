@@ -8,8 +8,6 @@ const [credentials, setCredentials] = useState({
     password: '',
 });
 
-const [isFetching, setIsFetching] = useState(false)
-
 const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
 }

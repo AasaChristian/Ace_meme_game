@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import { connect } from "react-redux";
 import { updateThread } from "../actions";
 import {
@@ -33,7 +33,7 @@ function Thread(props) {
         <div className="agentBarDiv" key={i}>
           <AgentBar
             style={
-              line.user == localUser
+              line.user === localUser
                 ? {
                     display: "flex",
                     flexDirection: "row",
@@ -44,7 +44,7 @@ function Thread(props) {
           >
             <Avatar imgUrl={line.image} />
             <div
-              className={line.user == localUser ? "myMessage" : "yourMessage"}
+              className={line.user === localUser ? "myMessage" : "yourMessage"}
             >
               <Column>
                 <div className={"line"}>

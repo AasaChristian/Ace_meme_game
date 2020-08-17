@@ -66,6 +66,7 @@ return(
 <img
             ref={uploadedImage}
             style={{display:"none"}}
+            alt='use avatar'
             />
 
 </div>
