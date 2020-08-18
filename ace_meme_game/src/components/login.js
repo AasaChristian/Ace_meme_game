@@ -12,6 +12,7 @@ const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
 }
 const login = e => {
+    console.log(props.socket, "props socket")
     props.socket.emit('login', credentials)
     props.history.push('/home')
 }

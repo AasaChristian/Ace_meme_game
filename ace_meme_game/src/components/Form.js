@@ -6,6 +6,7 @@ const storedAvi = localStorage.getItem('avatar')
 
 function MessageForm(props){
     const [notes, setNotes] = useState([])
+
     
 const handleChanges = e => {
     e.preventDefault()
