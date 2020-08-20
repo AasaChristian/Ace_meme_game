@@ -9,9 +9,9 @@ import Board from './components/Board';
 import Welcome from './components/welcome';
 
 
-const socket = io.connect("http://localhost:5000/")
+// const socket = io.connect("http://localhost:5000/")
 
-// const socket = io.connect("https://aasa-chat-app.herokuapp.com/")
+const socket = io.connect("https://aasa-chat-app.herokuapp.com/")
 
 console.log(socket, "socket")
 // console.log(socketLocal, "socketLocal")
