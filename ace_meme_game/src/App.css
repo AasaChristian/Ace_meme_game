@@ -15,13 +15,13 @@ header {
   justify-content: center;
   margin: 5% 5% 5% 30%;
 }
-
 .enterBTN {
-background-color: cornflowerblue;
-height: 80%;
-border-color: crimson;
-width: 50%;
-}
+  background-color: cornflowerblue;
+  height: 80%;
+  border-color: crimson;
+  width: 50%;
+  }
+
 .enterBTNCont {
   display: flex;
   flex-direction: row;
@@ -114,4 +114,49 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+
+@media(max-width:800px){
+
+  body {
+    height: 50px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .welcomeCont{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; */
+    background-color: darkorange;
+    align-self: center;
+  }
+
+  .welcomeCont h1{
+    align-self: center;
+    background-color: white;
+
+  }
+
+  .enterBTNCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 40%;
+  }
+
+  .enterBTN {
+    background-color: cornflowerblue;
+    /* height: 80%; */
+    border-color: rgb(7, 7, 7);
+    width: 100%;
+    height: 200px;
+    font-size: 40px;
+    }
+    
 }

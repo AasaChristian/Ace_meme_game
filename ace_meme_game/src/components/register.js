@@ -39,7 +39,7 @@ const handleImage = e => {
 console.log(credentials)
 
 const register = e => {
-    e.preventDefault();
+    e.preventDefault()
     props.socket.emit('register', credentials)
     props.history.push('/home')
 }

@@ -16,10 +16,11 @@ function Thread(props) {
   const [thread, setThread] = useState([]);
 
   props.socket.on("thread", (load) => {
-    console.log("here");
     setThread(load);
     chatmessages[0].scrollTop = chatmessages[0].scrollHeight;
   });
+
+  console.log(thread, "thread")
 
   const clearThread = () => {
       props.socket.emit('delete')

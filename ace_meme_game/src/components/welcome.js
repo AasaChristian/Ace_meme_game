@@ -14,9 +14,11 @@ function Welcome(props) {
   return (
     <div>
       <header>
+        <div className='welcomeCont'>
         <h1>
-          Hello {localUser}!! <br></br> Welcome to Ace's Chat App!!
+           Welcome
         </h1>
+        </div>
       </header>
       <section className="enterBTNCont">
         <button className="enterBTN" onClick={register}>
