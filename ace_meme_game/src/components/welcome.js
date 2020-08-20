@@ -1,6 +1,7 @@
 import React from "react";
 
-const localUser = localStorage.getItem("username");
+// const localUser = localStorage.getItem("username");
+
 function Welcome(props) {
   const register = (e) => {
     e.preventDefault();
