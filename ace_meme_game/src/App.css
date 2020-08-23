@@ -49,16 +49,16 @@ img {
   width: auto;
   max-width: auto;
 
-};
+}
 /* //// container //// */
- .thread-box {
+ /* .thread-box {
   width: 1000px;
   max-width:  auto;
   margin: 0 auto;
   border: solid  black 10px;
   border-radius: 5px; 
   overflow: hidden;
- } 
+ }  */
 
  /* message */
 .line {
@@ -119,8 +119,14 @@ input {
 
 @media(max-width:800px){
 
+
   body {
-    height: 50px;
+    height: 800px;
+    background-color:white;
+  }
+
+  #root {
+    height: 800px;
   }
 
   header {
@@ -132,7 +138,7 @@ input {
     /* display: flex;
     flex-direction: row;
     justify-content: space-evenly; */
-    background-color: darkorange;
+    background-color: #16BAC5;
     align-self: center;
   }
 
@@ -140,6 +146,66 @@ input {
     align-self: center;
     background-color: white;
 
+  }
+
+  .thread-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    /* max-width: auto; */
+    background-color: #FFECCC;
+  
+  }
+
+  .thread-box {
+    margin-top: 70px;
+    width: 90%;
+    height: 450px;
+  }
+
+  .scroll {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 300px;
+    width: 100%;
+  
+  }
+
+  .agentBarDiv {
+    height: 250px;
+  }
+
+
+  .loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+  }
+
+  .loginForm input{
+    background-color: #faf6f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20%;
+    font-size: 500%;
+    color: #f39ea9;
+  }
+
+  .imgInpt{
+    font-size-adjust: initial;
+    font-size: 10px;
+    background-color: #5FBFF9;
+  }
+
+  .loginBTN {
+    background-color:#f39ea9;
+    height: 40%;
+    font-size: 450%;
   }
 
   .enterBTNCont {
@@ -151,7 +217,7 @@ input {
   }
 
   .enterBTN {
-    background-color: cornflowerblue;
+    background-color: #5FBFF9;
     /* height: 80%; */
     border-color: rgb(7, 7, 7);
     width: 100%;

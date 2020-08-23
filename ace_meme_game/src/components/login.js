@@ -25,10 +25,10 @@ props.socket.on('token', load => {
     localStorage.setItem('username', load.username)
 })
 return(
-   <form onSubmit={login}>
-        <input type="text" name="username" onChange={handleChange} placeholder="username" />
-        <input type="text" name="password" onChange={handleChange} placeholder="password"/>
-        <button type="submit">LOGIN</button>
+   <form onSubmit={login} className="loginForm">
+        <input type="text" name="username" onChange={handleChange} placeholder="UserName" />
+        <input type="text" name="password" onChange={handleChange} placeholder="PassWord"/>
+        <button type="submit" className="loginBTN">LOGIN</button>
 </form> 
 )
 

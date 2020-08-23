@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 
 const Register = (props) =>{
     const uploadedImage = useRef(null)
-    let aviImg;
+    // let aviImg;
 
 
 
@@ -18,24 +18,24 @@ const [credentials, setCredentials] = useState({
 const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
 }
-const handleImage = e => {
-    const [file] = e.target.files;
-    if (file) {
-        const reader = new FileReader();
-        const {current} = uploadedImage;
-        current.file = file;
-        console.log(file, "file")
+// const handleImage = e => {
+//     const [file] = e.target.files;
+//     if (file) {
+//         const reader = new FileReader();
+//         const {current} = uploadedImage;
+//         current.file = file;
+//         console.log(file, "file")
 
-        reader.onload = (e) => {
-            current.src = e.target.result;
-            aviImg = uploadedImage.current.src
-            setCredentials({...credentials, avatar: aviImg})
+//         reader.onload = (e) => {
+//             current.src = e.target.result;
+//             aviImg = uploadedImage.current.src
+//             setCredentials({...credentials, avatar: aviImg})
 
             
-        }
-        reader.readAsDataURL(file)  
-    }
-}
+//         }
+//         reader.readAsDataURL(file)  
+//     }
+// }
 console.log(credentials)
 
 const register = e => {
@@ -56,11 +56,11 @@ props.socket.on('token', load => {
 
 return(
     <div>
-   <form onSubmit={register}>
-        <input type="text" name="username" onChange={handleChange} placeholder="username" />
-        <input type="text" name="password" onChange={handleChange} placeholder="password"/>
-        <input type="file" accept="image/*" onChange={handleImage}/>
-        <button type="submit">CREATE ACCOUNT</button>
+   <form onSubmit={register} className="loginForm">
+        <input type="text" name="username" onChange={handleChange} placeholder="UserName" />
+        <input type="text" name="password" onChange={handleChange} placeholder="PassWord"/>
+        {/* <input className='imgInpt' type="file" accept="image/*" onChange={handleImage} /> */}
+        <button type="submit" className="loginBTN">CREATE ACCOUNT</button>
 </form> 
 
 <img
