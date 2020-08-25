@@ -43,10 +43,11 @@ function Thread(props) {
                 : { display: "flex" }
             }
           >
-            <Avatar imgUrl={line.image} />
+            <Avatar imgUrl={line.image} style={{display: line.user === localUser ? "none" : "value"}} />
             <div
               className={line.user === localUser ? "myMessage" : "yourMessage"}
             >
+              <Avatar imgUrl={line.image} style={{display: line.user === localUser ? "value" : "none"}}/>
               <Column>
                 <div className={"line"}>
                   <Title>{line.line}</Title>
