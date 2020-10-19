@@ -1,7 +1,6 @@
 import React from "react";
 import MessageForm from "./Form";
 import Thread from "./Thread";
-import ImageUploader from "./image";
 
 const userName = localStorage.getItem("username");
 function Board(props) {
@@ -16,15 +15,14 @@ function Board(props) {
     <div>
       <div className="welcome">
         <p>Welcome {userName}</p>
-        <button
+        <div className="logoutBTN">
+          <button
         onClick={logout}
-        className="logoutBTN"
         >LogOut</button>
+        </div>
+        
       </div>
 
-      <div>
-        <ImageUploader socket={props.socket} />
-      </div>
       <section className={"thread-body"}>
         <div className={"thread-box"}>
           <Thread socket={props.socket} />

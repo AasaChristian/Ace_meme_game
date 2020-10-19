@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from "react-redux";
 import {updateThread} from '../actions'
+import ImageUploader from './image'
 const storedName = localStorage.getItem('username')
 const storedAvi = localStorage.getItem('avatar')
 
@@ -35,8 +36,8 @@ return(
                 value={notes}
                 onChange={handleChanges}
                 />
-                <button type="submit">Submit</button>
             </form>
+            <ImageUploader socket={props.socket}/>
         </section>
     </div>
 )

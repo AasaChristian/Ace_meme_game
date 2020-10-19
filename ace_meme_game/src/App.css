@@ -28,6 +28,11 @@ header {
   justify-content: center;
 }
 
+.logoutBTN {
+padding-left: 70%;
+
+}
+
 img {
   flex-direction: column;
   justify-content: center;
@@ -112,8 +117,9 @@ input {
 
 .welcome  {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  margin-left: 35%;
 }
 
 

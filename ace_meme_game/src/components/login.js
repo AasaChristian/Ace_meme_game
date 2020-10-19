@@ -7,9 +7,14 @@ const [credentials, setCredentials] = useState({
     username: '',
     password: '',
 });
+const [room, setRoom] = useState('')
 
 const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
+}
+
+const handleChangeRoom = e => {
+    setRoom({...room, [e.target.name]: e.target.value})
 }
 const login = e => {
     e.preventDefault()
@@ -26,10 +31,12 @@ props.socket.on('token', load => {
 })
 return(
    <form onSubmit={login} className="loginForm">
+       <input type="text" name="room" onChange={handleChangeRoom} placeholder="Room" />
         <input type="text" name="username" onChange={handleChange} placeholder="UserName" />
         <input type="text" name="password" onChange={handleChange} placeholder="PassWord"/>
         <button type="submit" className="loginBTN">LOGIN</button>
 </form> 
+
 )
 
 
