@@ -39,22 +39,6 @@ function App() {
           <header>
             <h1>Ace's Meme Game</h1>
           </header>
-
-          <div>
-            {/* <ImageUploader
-            socket={socket}
-            /> */}
-          </div>
-          <section className={'thread-body'} translate='no'>
-            <div className={'thread-box'}>
-              {/* <Thread
-                socket={socket}
-              />
-              <MessageForm
-                socket={socket}
-              />   */}
-            </div>
-          </section>
       </Switch>
     </div>
     </Router>
