@@ -7,6 +7,7 @@ import Login from './components/login';
 import PrivateRoute from './components/PrivateRoute';
 import Board from './components/Board';
 import Welcome from './components/welcome';
+import JoinRoom from './components/joinRoom';
 
 const socket = io.connect("http://localhost:5000/")
 
@@ -35,6 +36,10 @@ function App() {
           <Route
           exact path="/login"
           render={props => <Login {...props} socket={socket}/>}
+          />
+          <Route
+          exact path="/joinRoom"
+          render={props => <JoinRoom {...props} socket={socket}/>}
           />
           <header>
             <h1>Ace's Meme Game</h1>
