@@ -4,29 +4,26 @@ import React, { useEffect, useState } from 'react';
 
 const JoinRoom = (props) =>{
     const userName = localStorage.getItem('username')
+    const [room, setRoom] = useState('')
+    const [existingRoom, setExistingRoom] = useState([])
+// sends server user name to have connected rooms returned
     useEffect(() => {
         props.socket.emit("selectRoom", userName)
     },[])
-
-const [room, setRoom] = useState('')
-const [existingRoom, setExistingRoom] = useState([])
-
+// socket from server, retunrs all rooms user is part of.
 props.socket.on("preRoom", preRooms => {
     setExistingRoom(preRooms)
 })
-console.log(room, "room")
-
+// handle change for new room inpute form
 const handleChangeRoom = e => {
     setRoom(e.target.value)
 }
-
+// click even to create a new room
 const create = (e) => {
     e.preventDefault()
     props.socket.emit('roomName', {roomName: room, userName})
+    props.history.push('/home')
 }
-
-
-
 
 
 return(
@@ -41,6 +38,7 @@ return(
             <div key ={rooms.id}>
            <button onClick={nun => {
                props.socket.emit("selectedRoomName", (rooms.name))
+               props.history.push('/home')
             
             } }
            ><p>{rooms.name}</p></button>
