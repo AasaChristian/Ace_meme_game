@@ -15,6 +15,13 @@ const chatmessages = document.getElementsByClassName("scroll");
 
 function Thread(props) {
   const [thread, setThread] = useState([]);
+  const [mess, setMess] = useState([])
+
+  props.socket.on('message', ({user, text}) => {
+    console.log(user, "user")
+    console.log(text, "text")
+    alert(text)
+  })
 
   props.socket.on("thread", (load) => {
     setThread(load);
