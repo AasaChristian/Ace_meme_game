@@ -9,41 +9,29 @@ const [credentials, setCredentials] = useState({
     username: '',
     password: '',
 });
-const [room, setRoom] = useState('')
 
-console.log(room, "room")
+
+
 
 const handleChange = e => {
     setCredentials({...credentials, [e.target.name]: e.target.value})
 }
 
-const handleChangeRoom = e => {
-    setRoom(e.target.value)
-}
+
 const login = e => {
     e.preventDefault()
-    // props.socket.emit('roomName', {room: room, creds: credentials})
     console.log( "Help Me!")
-        props.socket.emit('login', {room: room, creds: credentials})
-
-
-    // Axios
-    // .post('http://localhost:5000/api/users/login', credentials)
-    // .then(res => {
-    //     // localStorage.setItem('token', res.data.payload);
-    //     console.log(res, "Token")
-    // })
-    // .catch(err => console.log(err))
+    props.socket.emit('login', { creds: credentials})
+    props.history.push('/joinRoom')
 }
 
 props.socket.on('token', load => {
     console.log(load)
-    // localStorage.setItem('token', load.Token)
+    localStorage.setItem('token', load.Token)
     localStorage.setItem('username', load.username)
 })
 return(
    <form onSubmit={login} className="loginForm">
-        <input type="text" name="room" onChange={handleChangeRoom} placeholder="Room" />
     
         <input type="text" name="username" onChange={handleChange} placeholder="UserName" />
         <input type="text" name="password" onChange={handleChange} placeholder="PassWord"/>
