@@ -41,7 +41,7 @@ console.log(credentials)
 const register = e => {
     e.preventDefault()
     props.socket.emit('register', credentials)
-    props.history.push('/home')
+    props.history.push('/joinRoom')
 }
 
 
