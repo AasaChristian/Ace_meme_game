@@ -22,18 +22,18 @@ const handleChangeRoom = e => {
 }
 const login = e => {
     e.preventDefault()
+    // props.socket.emit('roomName', {room: room, creds: credentials})
     console.log( "Help Me!")
-    // props.socket.emit('login', credentials)
-    // console.log(log, "log")
-    Axios
-    .post('http://localhost:5000/api/login', credentials)
-    .then(res => {
-        // localStorage.setItem('token', res.data.payload);
-        console.log(res, "Token")
-    })
-    .catch(err => console.log(err))
+        props.socket.emit('login', {room: room, creds: credentials})
 
-    // props.history.push('/home')
+
+    // Axios
+    // .post('http://localhost:5000/api/users/login', credentials)
+    // .then(res => {
+    //     // localStorage.setItem('token', res.data.payload);
+    //     console.log(res, "Token")
+    // })
+    // .catch(err => console.log(err))
 }
 
 props.socket.on('token', load => {
